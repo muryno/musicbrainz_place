@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">musicbrainz_place</string>
+    <string name="enter_country">Enter Country</string>
 </resources>
