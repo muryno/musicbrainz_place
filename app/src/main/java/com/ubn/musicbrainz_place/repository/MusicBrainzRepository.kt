@@ -4,7 +4,7 @@ import com.ubn.musicbrainz_place.model.MusicPlace
 import kotlinx.coroutines.flow.Flow
 
 class MusicBrainzRepository {
-   suspend fun getMusikPlace(): Flow<Result<List<MusicPlace>>> {
+   suspend fun getMusikPlace( country : String): Flow<Result<List<MusicPlace>>> {
 
 
        TODO("NOT YET IMPLEMENTED")
