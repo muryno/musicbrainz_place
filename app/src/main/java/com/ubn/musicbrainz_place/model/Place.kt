@@ -7,6 +7,9 @@ import java.io.Serializable
 
 
 class Place : Serializable {
+
+
+
     @SerializedName("id")
     @Expose
     var id: String? = null
@@ -50,6 +53,8 @@ class Place : Serializable {
     @SerializedName("disambiguation")
     @Expose
     var disambiguation: String? = null
+
+    constructor()
 
     companion object {
         private const val serialVersionUID = -3457303393196143072L

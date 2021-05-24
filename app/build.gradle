@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id  'dagger.hilt.android.plugin'
+    id 'com.google.secrets_gradle_plugin' version '0.5'
 }
 
 android {
@@ -61,6 +62,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha01'
 
 
+    //google
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
 
 
     // Retrofit
@@ -89,3 +93,5 @@ dependencies {
         exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,18 +1,18 @@
 package com.ubn.musicbrainz_place.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.liveData
 import com.ubn.musicbrainz_place.model.MusicPlace
 import com.ubn.musicbrainz_place.repository.MusicBrainzRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MusicBrainzViewModel(val repository : MusicBrainzRepository) :ViewModel(){
+class MusicBrainzViewModel @Inject constructor(val repository : MusicBrainzRepository) :ViewModel(){
 
 
 
-  fun  getMusicCountryPlace( country : String): LiveData<Result<List<MusicPlace>>> {
+  fun  getMusicCountryPlace( country : String): LiveData<Result<MusicPlace>> {
       return liveData {
         emitSource(repository.getMusikPlace(country).asLiveData())
     }

@@ -22,16 +22,13 @@ import org.mockito.Mock
 import java.lang.RuntimeException
 
 
-class MusicBrainzViewModelJunitTest: BaseUnitTest() {
+class MusicBrainzViewModelTest: BaseUnitTest() {
 
 
-
-
-  //private  var viewModel : MusicBrainzViewModel
 
     private  var repository : MusicBrainzRepository = mock()
 
-    private  val placeMarker = mock<List<MusicPlace>>()
+    private  val placeMarker = mock<MusicPlace>()
 
     private  val expected = Result.success(placeMarker)
 
@@ -57,7 +54,7 @@ class MusicBrainzViewModelJunitTest: BaseUnitTest() {
         runBlocking{
             whenever(repository.getMusikPlace("Lithuania")).thenReturn(
                 flow {
-                    emit(Result.failure<List<MusicPlace>>(failureException))
+                    emit(Result.failure<MusicPlace>(failureException))
                 }
             )
         }

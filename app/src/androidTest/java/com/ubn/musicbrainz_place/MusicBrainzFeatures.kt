@@ -33,4 +33,6 @@ class MusicBrainzFeatures {
         assertHint(R.id.editTextCountryName, R.string.enter_country);
        // assertDisplayed(assertHint(R.id.edittext, "Hint");)
     }
+
+
 }
