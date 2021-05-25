@@ -1,11 +1,11 @@
-package com.ubn.musicbrainz_place.viewmodel
+package com.ubn.musicbrainz_place.view.viewServices.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.ubn.musicbrainz_place.model.MusicPlace
-import com.ubn.musicbrainz_place.repository.MusicBrainzRepository
+import com.ubn.musicbrainz_place.view.viewServices.repository.MusicBrainzRepository
 import javax.inject.Inject
 
 class MusicBrainzViewModel @Inject constructor(val repository : MusicBrainzRepository) :ViewModel(){

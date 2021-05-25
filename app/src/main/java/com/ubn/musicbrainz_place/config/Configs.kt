@@ -2,13 +2,14 @@ package com.ubn.musicbrainz_place.config
 
 
 
+import com.ubn.musicbrainz_place.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
 abstract class Configs {
     companion object{
-        val BASE_URL: String = "http://musicbrainz.org/ws/2/"
+        val BASE_URL: String = BuildConfig.Base_URL
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
@@ -25,4 +26,6 @@ abstract class Configs {
 
             }.addInterceptor(interceptor).build()
     }
+
+    //retrofit is implemented in MusicBrainzModule
 }

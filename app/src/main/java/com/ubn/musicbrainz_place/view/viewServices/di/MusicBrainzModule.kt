@@ -1,4 +1,4 @@
-package com.ubn.musicbrainz_place.di
+package com.ubn.musicbrainz_place.view.viewServices.di
 
 import com.ubn.musicbrainz_place.config.Configs.Companion.BASE_URL
 import com.ubn.musicbrainz_place.config.Configs.Companion.client

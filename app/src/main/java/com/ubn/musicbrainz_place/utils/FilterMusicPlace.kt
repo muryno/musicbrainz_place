@@ -4,6 +4,7 @@ import com.ubn.musicbrainz_place.model.Place
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
+//Single responsibility principle
 class FilterMusicPlace @Inject constructor(var lifeSpanCalculation: LifeSpanCalculation) {
 
 

@@ -1,24 +1,20 @@
 package com.ubn.musicbrainz_place
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.ubn.musicbrainz_place.model.MusicPlace
-import com.ubn.musicbrainz_place.repository.MusicBrainzRepository
+import com.ubn.musicbrainz_place.view.viewServices.repository.MusicBrainzRepository
 import com.ubn.musicbrainz_place.utils.BaseUnitTest
-import com.ubn.musicbrainz_place.utils.MainCoroutineScopeRule
 import com.ubn.musicbrainz_place.utils.getValueForTest
-import com.ubn.musicbrainz_place.viewmodel.MusicBrainzViewModel
+import com.ubn.musicbrainz_place.view.viewServices.viewmodel.MusicBrainzViewModel
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.junit.Rule
-import org.mockito.Mock
 import java.lang.RuntimeException
 
 

@@ -1,14 +1,11 @@
-package com.ubn.musicbrainz_place.services
+package com.ubn.musicbrainz_place.view.viewServices.services
 
 import com.ubn.musicbrainz_place.config.MusicPlaceApi
 import com.ubn.musicbrainz_place.model.MusicPlace
 import com.ubn.musicbrainz_place.utils.FilterMusicPlace
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
 import java.lang.RuntimeException
 import javax.inject.Inject
 

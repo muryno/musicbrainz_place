@@ -4,8 +4,8 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.ubn.musicbrainz_place.model.MusicPlace
-import com.ubn.musicbrainz_place.repository.MusicBrainzRepository
-import com.ubn.musicbrainz_place.services.MusikBrainzService
+import com.ubn.musicbrainz_place.view.viewServices.repository.MusicBrainzRepository
+import com.ubn.musicbrainz_place.view.viewServices.services.MusikBrainzService
 import com.ubn.musicbrainz_place.utils.BaseUnitTest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow

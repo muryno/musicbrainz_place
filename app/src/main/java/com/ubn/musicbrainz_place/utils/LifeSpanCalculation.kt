@@ -2,7 +2,7 @@ package com.ubn.musicbrainz_place.utils
 
 import javax.inject.Inject
 
-
+//Single responsibility principle
 class LifeSpanCalculation @Inject constructor() {
 
 

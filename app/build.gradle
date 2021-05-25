@@ -6,6 +6,18 @@ plugins {
     id 'com.google.secrets_gradle_plugin' version '0.5'
 }
 
+
+//Add these lines
+def Base_URL = '"' + WEBServiceBaseURL + '"' ?: '"Define BASE URL"';
+def GoogleApiKey = '"' + WEBServiceGoogleApiKey + '"' ?: '"Define SMS BASE URL"';
+
+android.buildTypes.each { type ->
+    type.buildConfigField 'String', 'Base_URL', WEBServiceBaseURL
+    type.buildConfigField 'String', 'GoogleApiKey', WEBServiceGoogleApiKey
+}
+
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

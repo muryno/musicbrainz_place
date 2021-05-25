@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.ubn.musicbrainz_place.model.MusicPlace
 import com.ubn.musicbrainz_place.config.MusicPlaceApi
-import com.ubn.musicbrainz_place.services.MusikBrainzService
+import com.ubn.musicbrainz_place.view.viewServices.services.MusikBrainzService
 import com.ubn.musicbrainz_place.utils.BaseUnitTest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest

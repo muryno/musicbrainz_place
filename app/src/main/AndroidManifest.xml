@@ -30,10 +30,10 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCKKPsJXYbDt4noigWs-KiYVK4-Bia7B34" />
+            android:value="${MAPS_API_KEY}" />
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
