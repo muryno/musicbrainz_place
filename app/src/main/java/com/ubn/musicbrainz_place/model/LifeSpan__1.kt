@@ -18,7 +18,20 @@ class LifeSpan__1 : Serializable {
     @Expose
     var end: String? = null
 
-    companion object {
-        private const val serialVersionUID = -1270633315262597835L
-    }
+
+        //calculates the lifespan based on the requirement "year - 1990"
+        fun getLifeSpan() : Int{
+            var span = 0
+
+            try {
+                begin?.let {
+                    span = it.substring(0, 4).toInt() - 1990
+                }
+            }catch (e : Exception){
+                print(e)
+            }
+
+            return span
+        }
+
 }

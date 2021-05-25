@@ -1,4 +1,4 @@
-package com.ubn.musicbrainz_place.server
+package com.ubn.musicbrainz_place.config
 
 import com.ubn.musicbrainz_place.BuildConfig
 import com.ubn.musicbrainz_place.model.MusicPlace

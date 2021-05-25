@@ -80,24 +80,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                         .title(place.name)
                         .position(
                             LatLng(
-                                place.coordinates?.latitude?.toDouble() ?: 55.1694,
-                                place.coordinates?.longitude?.toDouble() ?: 23.8813
+                                place.coordinates?.latitude?.toDouble() ?: 0.0,
+                                place.coordinates?.longitude?.toDouble() ?: 0.0
                             )
                         )
                 )
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng( LatLng(
-                    place.coordinates?.latitude?.toDouble() ?: 55.1694,
-                    place.coordinates?.longitude?.toDouble() ?: 23.8813
+                    place.coordinates?.latitude?.toDouble() ?: 0.0,
+                    place.coordinates?.longitude?.toDouble() ?: 0.0
                 )))
                 marker?.tag = place.name
             }
-        }else{
-
-
-            // Add a marker in Sydney and move the camera
-            val sydney = LatLng(-34.0, 151.0)
-            googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         }
     }
 }

@@ -8,7 +8,10 @@ import java.io.Serializable
 
 class Place : Serializable {
 
-
+    // custom expiring time
+    @SerializedName("expiredSec")
+    @Expose
+    var expiredSec: Int = 0
 
     @SerializedName("id")
     @Expose
@@ -54,7 +57,10 @@ class Place : Serializable {
     @Expose
     var disambiguation: String? = null
 
-    constructor()
+
+
+
+
 
     companion object {
         private const val serialVersionUID = -3457303393196143072L

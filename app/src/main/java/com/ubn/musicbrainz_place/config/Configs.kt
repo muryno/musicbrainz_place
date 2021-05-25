@@ -1,4 +1,4 @@
-package com.ubn.musicbrainz_place.server
+package com.ubn.musicbrainz_place.config
 
 
 

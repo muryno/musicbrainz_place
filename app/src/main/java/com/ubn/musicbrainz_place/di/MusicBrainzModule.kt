@@ -1,8 +1,8 @@
 package com.ubn.musicbrainz_place.di
 
-import com.ubn.musicbrainz_place.server.Configs.Companion.BASE_URL
-import com.ubn.musicbrainz_place.server.Configs.Companion.client
-import com.ubn.musicbrainz_place.server.MusicPlaceApi
+import com.ubn.musicbrainz_place.config.Configs.Companion.BASE_URL
+import com.ubn.musicbrainz_place.config.Configs.Companion.client
+import com.ubn.musicbrainz_place.config.MusicPlaceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
