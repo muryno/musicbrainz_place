@@ -4,12 +4,11 @@ plugins {
     id 'kotlin-kapt'
     id  'dagger.hilt.android.plugin'
     id 'com.google.secrets_gradle_plugin' version '0.5'
+    id 'kotlin-android-extensions'
 }
 
 
-//Add these lines
-def Base_URL = '"' + WEBServiceBaseURL + '"' ?: '"Define BASE URL"';
-def GoogleApiKey = '"' + WEBServiceGoogleApiKey + '"' ?: '"Define SMS BASE URL"';
+
 
 android.buildTypes.each { type ->
     type.buildConfigField 'String', 'Base_URL', WEBServiceBaseURL
@@ -101,6 +100,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
     androidTestImplementation('com.schibsted.spain:barista:3.6.0') {
         exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
     }

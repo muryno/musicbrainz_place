@@ -2,11 +2,15 @@ package com.ubn.musicbrainz_place.view.viewServices.baseActivity
 
 import android.app.Application
 import android.app.NotificationManager
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +19,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.ubn.musicbrainz_place.MusicBrainApplication
 import com.ubn.musicbrainz_place.R
+import com.ubn.musicbrainz_place.utils.CheckInternetConnection
 import com.ubn.musicbrainz_place.utils.ProgressDialog
 
 
@@ -24,14 +29,9 @@ abstract class BaseActivity: AppCompatActivity() {
     private var  view: View? = null
 
 
+    @Volatile
+    private var isOn = false
 
-    fun setToolbar(toolbar: Toolbar, title: String) {
-        setSupportActionBar(toolbar)
-        if (supportActionBar != null) {
-            supportActionBar?.title = title
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
-    }
 
 
 
@@ -41,11 +41,13 @@ abstract class BaseActivity: AppCompatActivity() {
         if (view != null) {
 
             //if internet is off it display a buttom snack
-            val snackBarView = snackbar?.view
-            snackBarView?.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
-            val textView= snackBarView?.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
-            textView?.gravity = View.TEXT_ALIGNMENT_CENTER
-            textView?.setTextColor(ContextCompat.getColor(this, R.color.white))
+            snackbar = Snackbar.make(view!!, "Check your internet connection.", Snackbar.LENGTH_INDEFINITE)
+            val snackBarView = snackbar!!.view
+            snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
+            val textView= snackBarView.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+            textView.gravity = View.TEXT_ALIGNMENT_CENTER
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+
 
         }
     }
@@ -63,15 +65,13 @@ abstract class BaseActivity: AppCompatActivity() {
 
 
     //creating generic snackBar for all class that will implement
-    protected fun snackBar(message: String) {
-        if (view != null) {
-            Snackbar.make(view!!, message, Snackbar.LENGTH_LONG).show()
-        }
+    protected fun toastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     //creating generic progress dialog for all class that will implement
     protected  fun  progressDialog(message: String) : AlertDialog? {
-     return  ProgressDialog.setProgressDialog(this, message)
+        return  ProgressDialog.setProgressDialog(this, message)
 
     }
 
@@ -83,6 +83,39 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
 
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(broadcastReceiver)
+        super.onPause()
+        isOn = false
+    }
+
+    override fun onResume() {
+        super.onResume()
+        registerInternetCheckReceiver()
+        isOn = true
+    }
+
+
+
+
+    private fun registerInternetCheckReceiver() {
+        val internetFilter = IntentFilter()
+        internetFilter.addAction("android.net.wifi.STATE_CHANGE")
+        internetFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
+        registerReceiver(broadcastReceiver, internetFilter)
+    }
+
+    private val broadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (CheckInternetConnection.isOnline()) {
+                snackbar?.dismiss()
+            } else {
+                snackbar?.show()
+            }
+        }
+    }
 
 
 
